@@ -17,7 +17,21 @@
 
   </template>
   <script>
-    import '../../middleware/fetchy-instance.js'
+    import past from '../../middleware/past'
+
+
+    // this code was blatantly copied from https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/docs/examples/api/history/showHistory/typedUrls.js
+    window.addEventListener('load', function () {
+      past('twitter')
+        .then(urls => {
+          console.warn('urls', urls)
+        })
+        .catch(error => {
+          console.error('could not get urls', error)
+        })
+    });
+
+
     class Element extends Polymer.Element {
       static get is() {
         return "donna-app"
