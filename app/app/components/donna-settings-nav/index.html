@@ -1,0 +1,46 @@
+<link rel="import" href="../../../../node_modules/@polymer/polymer/polymer-element.html">
+
+<dom-module id="donna-settings-nav">
+  <template>
+    <style>
+      
+      :host {
+        position: fixed;
+        left: 70px;
+        /*height: 100px;*/
+        top: 0;
+        right: 0;
+        overflow: auto;
+        padding: var(--d-spacing-sm) var(--d-spacing-sm) var(--d-spacing-sm) var(--d-spacing-md);
+        border-bottom: 1px solid var(--d-dark-40);
+        background-color: var(--d-dark-0);
+      }
+
+      :host h1 {
+        float: left;
+        color: var(--d-dark-100);
+        font-weight: 100;
+        margin: 0;
+        padding: 0;
+        font-size: 21px;
+        letter-spacing: var(--d-letter-spacing);
+        margin-top: 3px;
+      }
+
+      :host donna-btn {
+        float: right;
+      }
+
+    </style>
+    <h1>Settings</h1>
+    <donna-btn></donna-btn>
+  </template>
+  <script>
+    class Element extends Polymer.Element {
+      static get is() {
+        return "donna-settings-nav"
+      }
+    }
+    window.customElements.define(Element.is, Element)
+  </script>
+</dom-module>
