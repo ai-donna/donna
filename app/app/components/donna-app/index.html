@@ -10,7 +10,7 @@
       }
 
     </style>
-    
+
     <donna-nav></donna-nav>
     <donna-view-home></donna-view-home>
 
@@ -20,7 +20,6 @@
     import past from '../../middleware/past'
 
 
-    // this code was blatantly copied from https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/docs/examples/api/history/showHistory/typedUrls.js
     window.addEventListener('load', function () {
       past('twitter')
         .then(urls => {
