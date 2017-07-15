@@ -1,0 +1,25 @@
+<link rel="import" href="../../../../node_modules/@polymer/polymer/polymer-element.html">
+<link rel="import" href="../index.html">
+
+<dom-module id="donna-view-home">
+  <template>
+    <style>
+      :host {
+        /* due to routing */
+        /* display: none; */
+      }
+    </style>
+    <donna-chat-bubble-system></donna-chat-bubble-system>
+    <donna-chat-bubble-user></donna-chat-bubble-user>
+    <donna-message-bar></donna-message-bar>
+  </template>
+  <script>
+    import '../../middleware/fetchy-instance.js'
+    class Element extends Polymer.Element {
+      static get is() {
+        return "donna-view-home"
+      }
+    }
+    window.customElements.define(Element.is, Element)
+  </script>
+</dom-module>

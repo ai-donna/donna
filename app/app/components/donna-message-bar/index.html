@@ -1,0 +1,61 @@
+<link rel="import" href="../../../../node_modules/@polymer/polymer/polymer-element.html">
+<link rel="import" href="../index.html">
+
+<dom-module id="donna-message-bar">
+  <template>
+    <style>
+      
+      :host {
+      }
+
+      :host .message-bar-wrapper {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        overflow: auto;
+        padding: var(--d-spacing-sm);
+        border-top: 1px solid var(--d-dark-40);
+        background-color: var(--d-white);
+      }
+
+      :host .message-bar-wrapper input.message-bar {
+        float: left;
+        height: 30px;
+        padding: 0 var(--d-spacing-md);
+        border: none;
+        appearance: none;
+        outline: none;
+        display: block;
+        width: 90%;
+        font-size: var(--d-font-size-md);
+        color: var(--d-dark-100);
+      }
+
+      :host .message-bar-wrapper input.message-bar::placeholder {
+        color: var(--d-dark-60);
+      }
+
+      :host donna-return-btn {
+        float: right;
+      }
+      
+
+
+    </style>
+    <div class="message-bar-wrapper">
+      <input class="message-bar" placeholder="video with the dog jumping on the trampolina..." type="text">
+      <donna-return-btn></donna-return-btn>
+    </div>
+
+  </template>
+  <script>
+    import '../../middleware/fetchy-instance.js'
+    class Element extends Polymer.Element {
+      static get is() {
+        return "donna-message-bar"
+      }
+    }
+    window.customElements.define(Element.is, Element)
+  </script>
+</dom-module>

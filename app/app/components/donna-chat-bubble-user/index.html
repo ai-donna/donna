@@ -1,23 +1,24 @@
 <link rel="import" href="../../../../node_modules/@polymer/polymer/polymer-element.html">
 <link rel="import" href="../index.html">
 
-<dom-module id="donna-chat-bubble-system">
+<dom-module id="donna-chat-bubble-user">
   <template>
     <style>
       
       :host {
       }
-
-      :host .response-wrapper {
+      
+      :host .message-wrapper {
         display: block;
         width: 100%;
       }
-      
-      :host .response-wrapper .response {
+
+      :host .message-wrapper .message {
         display: inline-block;
+        float: right;
         padding: var(--d-spacing-md);
-        background-color: var(--d-primary);
-        border-radius: var(--d-border-radius-lg) var(--d-border-radius-lg) var(--d-border-radius-lg) var(--d-border-radius-sm);
+        background-color: var(--d-dark-100);
+        border-radius: var(--d-border-radius-lg) var(--d-border-radius-lg) var(--d-border-radius-sm) var(--d-border-radius-lg);
         color: var(--d-white);
         letter-spacing: var(--d-letter-spacing);
         max-width: 440px;
@@ -28,18 +29,18 @@
 
     </style>
 
-    <div class="response-wrapper">
-      <div class="response">
-        Response
+    <div class="message-wrapper">
+      <div class="message">
+        Donna show me dem thicc booty hoes
       </div>
     </div>
 
-
   </template>
   <script>
+    import '../../middleware/fetchy-instance.js'
     class Element extends Polymer.Element {
       static get is() {
-        return "donna-chat-bubble-system"
+        return "donna-chat-bubble-user"
       }
     }
     window.customElements.define(Element.is, Element)
