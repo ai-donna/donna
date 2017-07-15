@@ -1,0 +1,10 @@
+:root {
+  --color-primary: blue;
+  --color-foreground: white;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: pink;
+}

@@ -32,8 +32,8 @@ gulp.task('lint', lint('app/scripts.babel/**/*.js', {
   }
 }));
 
-gulp.task('images', () => {
-  return gulp.src('app/images/**/*')
+gulp.task('icons', () => {
+  return gulp.src('app/icons/**/*')
     .pipe($.if($.if.isFile, $.cache($.imagemin({
       progressive: true,
       interlaced: true,
@@ -45,7 +45,7 @@ gulp.task('images', () => {
       console.log(err);
       this.end();
     })))
-    .pipe(gulp.dest('dist/images'));
+    .pipe(gulp.dest('dist/icons'));
 });
 
 gulp.task('html',  () => {
@@ -87,7 +87,7 @@ gulp.task('watch', ['lint', 'babel'], () => {
   gulp.watch([
     'app/pages/*/*.html',
     'app/scripts/**/*.js',
-    'app/images/**/*',
+    'app/icons/**/*',
     'app/_locales/**/*.json'
   ]).on('change', $.livereload.reload);
 
@@ -108,7 +108,7 @@ gulp.task('package', function () {
 gulp.task('build', (cb) => {
   runSequence(
     'lint', 'babel', 'chromeManifest',
-    ['html', 'images', 'extras'],
+    ['html', 'icons', 'extras'],
     'size', cb);
 });
 

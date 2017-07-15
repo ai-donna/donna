@@ -1,0 +1,21 @@
+<dom-module id="donna-square">
+  <template>
+    <style>
+      :host {
+        color: yellow;
+      }
+    </style>
+    <div>square mate</div>
+  </template>
+  <script>
+    class ThisElement extends Polymer.Element {
+      constructor() {
+        super()
+      }
+      static get is() {
+        return "donna-square"
+      }
+    }
+    window.customElements.define(ThisElement.is, ThisElement)
+  </script>
+</dom-module>

@@ -2,7 +2,7 @@ node_modules
 temp
 .tmp
 dist
+app/app/dist
 .sass-cache
 package
 app/scripts
-

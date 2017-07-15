@@ -7,8 +7,8 @@
   "manifest_version": 2,
   "description": "__MSG_appDescription__",
   "icons": {
-    "16": "images/icon-16.png",
-    "128": "images/icon-128.png"
+    "16": "icons/icon-16.png",
+    "128": "icons/icon-128.png"
   },
   "default_locale": "en",
   "background": {
@@ -58,13 +58,13 @@
   },
   "browser_action": {
     "default_icon": {
-      "19": "images/icon-19.png",
-      "38": "images/icon-38.png"
+      "19": "icons/icon-19.png",
+      "38": "icons/icon-38.png"
     },
     "default_title": "donna",
     "default_popup": "pages/popup/index.html"
   },
   "web_accessible_resources": [
-    "images/icon-48.png"
+    "icons/icon-48.png"
   ]
 }
