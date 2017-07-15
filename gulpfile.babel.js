@@ -57,7 +57,15 @@ gulp.task('package', function () {
 });
 
 gulp.task('hot', function () {
-  return $.watch(['app/app/components/**', 'app/app/middleware/**'], { ignoreInitial: true })
+  return $.watch(
+    [
+      'app/app/components/**',
+      'app/app/middleware/**',
+      'app/app/assets/**',
+      'app/scripts/**'
+    ],
+    { ignoreInitial: true }
+  )
     .pipe($.shell(['npm start']));
 });
 
