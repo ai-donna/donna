@@ -1,7 +1,7 @@
 {
   "name": "donna",
   "scripts": {
-    "start": "cd app/app && webpack --progress --hide-modules"
+    "start": "rm -rf dist && cd app/app && webpack --progress --hide-modules && cp *.html dist && cp *.js dist && cd - && gulp build"
   },
   "dependencies": {
     "@polymer/polymer": "^2.0.0",
