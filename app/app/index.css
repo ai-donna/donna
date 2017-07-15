@@ -25,16 +25,19 @@
 
   --d-spacing-value: 6px;
 
-  --d-spacing-sm: var(--spacing-value);
-  --d-spacing-md: calc(var(--spacing-value) * 2);
-  --d-spacing-lg: calc(var(--spacing-value) * 4);
+  --d-spacing-sm: var(--d-spacing-value);
+  --d-spacing-md: calc(var(--d-spacing-value) * 2);
+  --d-spacing-lg: calc(var(--d-spacing-value) * 4);
 
 
   --d-border-radius-value: 4px;
 
-  --d-border-raiues-sm: var(--border-raiues-value);
-  --d-border-raiues-md: calc(var(--border-raiues-value) * 2);
-  --d-border-raiues-lg: calc(var(--border-raiues-value) * 3);
+  --d-border-radius-sm: var(--d-border-radius-value);
+  --d-border-radius-md: calc(var(--d-border-radius-value) * 2);
+  --d-border-radius-lg: calc(var(--d-border-radius-value) * 3);
+
+
+  --d-letter-spacing: 1px;
 
 }
 
