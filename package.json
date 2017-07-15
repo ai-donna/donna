@@ -1,7 +1,7 @@
 {
   "name": "donna",
   "scripts": {
-    "start": "rm -rf dist && rm -rf app/app/dist && gulp build && cd app/app && webpack --progress --hide-modules && cp *.html dist && cp native-shim.js dist && cd - && cp -R app/app/dist dist/app"
+    "start": "rm -rf dist && rm -rf app/app/dist && gulp build && cd app/app && webpack --progress --hide-modules && cp *.html dist && cp native-shim.js dist && cp index.css dist && cd - && cp -R app/app/dist dist/app"
   },
   "dependencies": {
     "@polymer/polymer": "^2.0.0",
