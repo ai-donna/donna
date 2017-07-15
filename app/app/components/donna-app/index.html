@@ -6,13 +6,13 @@
     <style>
       :host {
         /* due to routing */
-        display: none;
+        /* display: none; */
       }
     </style>
+    <donna-square></donna-square>
   </template>
   <script>
     import '../../middleware/fetchy-instance.js'
-    import '../../middleware/lost-instance.js'
     class Element extends Polymer.Element {
       static get is() {
         return "donna-app"
