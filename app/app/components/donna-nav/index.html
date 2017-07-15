@@ -1,18 +1,33 @@
 <link rel="import" href="../../../../node_modules/@polymer/polymer/polymer-element.html">
 <link rel="import" href="../index.html">
 
-<dom-module id="donna-app">
+<dom-module id="donna-nav">
   <template>
     <style>
+      
       :host {
-        /* due to routing */
-        /* display: none; */
       }
 
+      :host nav.nav {
+        display: block;
+        width: 70px;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: var(--d-dark-100);
+      }
+
+
     </style>
-    
-    <donna-nav></donna-nav>
-    <donna-view-home></donna-view-home>
+
+    <nav class="nav">
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </nav>
 
 
   </template>
@@ -20,7 +35,7 @@
     import '../../middleware/fetchy-instance.js'
     class Element extends Polymer.Element {
       static get is() {
-        return "donna-app"
+        return "donna-nav"
       }
     }
     window.customElements.define(Element.is, Element)

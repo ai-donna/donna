@@ -9,8 +9,20 @@
       }
 
       :host .response-wrapper {
+        position: relative;
         display: block;
         width: 100%;
+      }
+
+      :host .donna-avatar {
+        display: block;
+        position: absolute;
+        bottom: 24px;
+        left: 10px;
+        border-radius: 50%;
+        background-color: var(--d-dark-80);
+        width: 28px;
+        height: 28px;
       }
       
       :host .response-wrapper .response {
@@ -22,6 +34,7 @@
         letter-spacing: var(--d-letter-spacing);
         max-width: 440px;
         margin-bottom: var(--d-spacing-lg);
+        margin-left: 50px;
         line-height: var(--d-spacing-lg);
         font-size: var(--d-font-size-md);
       }
@@ -29,6 +42,7 @@
     </style>
 
     <div class="response-wrapper">
+      <div class="donna-avatar"></div>
       <div class="response">
         Response
       </div>
