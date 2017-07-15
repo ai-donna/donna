@@ -1,5 +1,4 @@
 <link rel="import" href="../../../../node_modules/@polymer/polymer/polymer-element.html">
-<link rel="import" href="../index.html">
 
 <dom-module id="donna-nav">
   <template>
@@ -39,21 +38,25 @@
         background-color: rgba(255,255,255,0.05);
       }
 
-
     </style>
 
     <nav class="nav">
       <ul>
-        <li>L</li>
-        <li>H</li>
+        <li data-shite-router-route="donna-view-home" on-click="go">L</li>
+        <li data-shite-router-route="donna-view-settings" on-click="go">H</li>
         <li>S</li>
       </ul>
     </nav>
 
 
+
   </template>
   <script>
+    import boozer from '../../middleware/boozer'
     class Element extends Polymer.Element {
+      go (e) {
+        boozer.publish('shite-router-go', e.path[0].dataset.shiteRouterRoute)
+      }
       static get is() {
         return "donna-nav"
       }

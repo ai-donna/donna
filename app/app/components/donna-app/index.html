@@ -12,11 +12,14 @@
     </style>
 
     <donna-nav></donna-nav>
-    <donna-view-home></donna-view-home>
+    <donna-view-home data-shite-route="donna-view-home"></donna-view-home>
+    <donna-view-settings data-shite-route="donna-view-settings"></donna-view-settings>
 
   </template>
   <script>
     import past from '../../middleware/past'
+    import boozer from '../../middleware/boozer'
+    import shiteRouter from '../../middleware/shite-router'
 
 
     window.addEventListener('load', function () {
@@ -31,6 +34,14 @@
 
 
     class Element extends Polymer.Element {
+      ready () {
+        super.ready()
+        const shiteRouterInstance = shiteRouter(this.shadowRoot)
+        shiteRouterInstance.go('donna-view-home')
+        boozer.subscribe('shite-router-go', (route) => {
+          shiteRouterInstance.go(route)
+        })
+      }
       static get is() {
         return "donna-app"
       }
