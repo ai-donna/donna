@@ -5,14 +5,14 @@
     <style>
       
       :host {
-      }
-      
-      :host .message-wrapper {
+        position: relative;
         display: block;
+        overflow: auto;
         width: 100%;
+        margin-bottom: var(--d-spacing-lg);
       }
 
-      :host .message-wrapper .message {
+      :host .message {
         display: inline-block;
         float: right;
         padding: var(--d-spacing-md);
@@ -21,18 +21,15 @@
         color: var(--d-white);
         letter-spacing: var(--d-letter-spacing);
         max-width: 440px;
-        margin-bottom: var(--d-spacing-lg);
-        margin-right: var(--d-spacing-lg);
         line-height: var(--d-spacing-lg);
         font-size: var(--d-font-size-md);
+        margin-right: var(--d-spacing-lg);
       }
 
     </style>
 
-    <div class="message-wrapper">
-      <div class="message">
-        Donna show me dem thicc booty hoes
-      </div>
+    <div class="message">
+      Donna show me dem thicc booty hoes
     </div>
 
   </template>

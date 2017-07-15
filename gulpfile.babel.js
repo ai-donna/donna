@@ -20,16 +20,16 @@ gulp.task('icons', () => {
     .pipe(gulp.dest('dist/icons'));
 });
 
-gulp.task('chromeManifest', () => {
-  return gulp.src('app/manifest.json')
-    .pipe($.chromeManifest({
-      buildnumber: true,
-      background: {
-        target: 'scripts/background.js'
-      }
-  }))
-    .pipe(gulp.dest('dist'));
-});
+// gulp.task('chromeManifest', () => {
+//   return gulp.src('app/manifest.json')
+//     .pipe($.chromeManifest({
+//       buildnumber: true,
+//       background: {
+//         target: 'scripts/background.js'
+//       }
+//   }))
+//     .pipe(gulp.dest('dist'));
+// });
 
 gulp.task('babel', () => {
   return gulp.src('dist/scripts/**')
@@ -64,7 +64,7 @@ gulp.task('hot', function () {
 gulp.task('build', (cb) => {
   runSequence(
     'stuff',
-    'chromeManifest',
+    // 'chromeManifest',
     'babel',
     'icons',
     'size',

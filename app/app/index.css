@@ -55,3 +55,8 @@ body {
   padding: 0;
   background-color: var(--d-dark-0);
 }
+
+a {
+  text-style: underline;
+  color: var(--d-white);
+}
