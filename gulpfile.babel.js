@@ -56,6 +56,11 @@ gulp.task('package', function () {
       .pipe(gulp.dest('package'));
 });
 
+gulp.task('hot', function () {
+  return $.watch(['app/app/components/**', 'app/app/middleware/**'], { ignoreInitial: true })
+    .pipe($.shell(['npm start']));
+});
+
 gulp.task('build', (cb) => {
   runSequence(
     'stuff',
