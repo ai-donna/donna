@@ -6,18 +6,16 @@
     <style>
       
       :host {
-      }
-
-      :host .response-wrapper {
         position: relative;
         display: block;
         width: 100%;
+        margin-bottom: var(--d-spacing-lg);
       }
 
       :host .donna-avatar {
         display: block;
         position: absolute;
-        bottom: 24px;
+        bottom: 0;
         left: 10px;
         border-radius: 50%;
         background-color: var(--d-dark-80);
@@ -25,7 +23,7 @@
         height: 28px;
       }
       
-      :host .response-wrapper .response {
+      :host .response {
         display: inline-block;
         padding: var(--d-spacing-md);
         background-color: var(--d-primary);
@@ -33,19 +31,20 @@
         color: var(--d-white);
         letter-spacing: var(--d-letter-spacing);
         max-width: 440px;
-        margin-bottom: var(--d-spacing-lg);
         margin-left: 50px;
         line-height: var(--d-spacing-lg);
         font-size: var(--d-font-size-md);
       }
+      
+      :host .response a {
+        color: var(--d-white);
+      }
 
     </style>
 
-    <div class="response-wrapper">
-      <div class="donna-avatar"></div>
-      <div class="response">
-        Response
-      </div>
+    <div class="donna-avatar"></div>
+    <div class="response">
+      Response <a href="#">www.facebook.com</a>
     </div>
 
 
