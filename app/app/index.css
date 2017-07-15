@@ -13,16 +13,16 @@
 
 
   --d-font: 'Roboto';
-  
+
   --d-font-size-md: 15px;
 
 
 
   --d-transition-value: .1s;
 
-  --d-transition-sm: all var(--transition-value) ease-out;
-  --d-transition-md: all calc(var(--transition-value) * 2) ease-out;
-  --d-transition-lg: all calc(var(--transition-value) * 4) ease-out;
+  --d-transition-sm: all var(--d-transition-value) ease-out;
+  --d-transition-md: all calc(var(--d-transition-value) * 2) ease-out;
+  --d-transition-lg: all calc(var(--d-transition-value) * 4) ease-out;
 
 
   --d-spacing-value: 6px;

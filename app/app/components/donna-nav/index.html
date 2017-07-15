@@ -18,14 +18,35 @@
         background-color: var(--d-dark-100);
       }
 
+      :host nav.nav ul {
+        margin: 0;
+        padding: 10px 0;
+
+      }
+
+      :host nav.nav ul li {
+        transition: var(--d-transition-sm);
+        padding: 0;
+        display: block;
+        width: 50px;
+        height: 50px;
+        border-radius: var(--d-border-radius-sm);
+        margin: 0 0 10px 10px;
+        cursor: pointer;
+      }
+
+      :host nav.nav ul li:hover {
+        background-color: rgba(255,255,255,0.05);
+      }
+
 
     </style>
 
     <nav class="nav">
       <ul>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li>L</li>
+        <li>H</li>
+        <li>S</li>
       </ul>
     </nav>
 
