@@ -1,10 +1,42 @@
 :root {
-  --color-primary: blue;
-  --color-foreground: white;
+
+  --d-primary: #0087ff;
+  --d-blue: #07d0ff;
+
+  --d-dark-100: #292b2b;
+  --d-dark-80: #5b5f60;
+  --d-dark-60: #9da0a1;
+  --d-dark-40: #e5e5e5;
+  --d-dark-0: #f9f9f9;
+
+  --d-white: #ffffff;
+
+
+  --d-font: 'Roboto';
+
+
+
+  --d-transition-value: .1s;
+
+  --d-transition-sm: all var(--transition-value) ease-out;
+  --d-transition-md: all calc(var(--transition-value) * 2) ease-out;
+  --d-transition-lg: all calc(var(--transition-value) * 4) ease-out;
+
+
+  --d-spacing-value: 6px;
+
+  --d-spacing-sm: var(--spacing-value);
+  --d-spacing-md: calc(var(--spacing-value) * 2);
+  --d-spacing-lg: calc(var(--spacing-value) * 4);
+
+}
+
+html {
+  font-family: var(--d-font);
 }
 
 body {
   margin: 0;
   padding: 0;
-  background-color: pink;
+  background-color: var(--d-dark-0);
 }
