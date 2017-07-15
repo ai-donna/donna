@@ -1,22 +1,32 @@
 <link rel="import" href="../../../../node_modules/@polymer/polymer/polymer-element.html">
 <link rel="import" href="../index.html">
 
-<dom-module id="donna-app">
+<dom-module id="donna-chat-bubble-system">
   <template>
     <style>
+      
       :host {
-        /* due to routing */
-        /* display: none; */
       }
+      
+      :host div {
+        display: inline-block;
+        padding: var(--d-spacing-md);
+        background-color: var(--d-primary);
+        border-radius: var(--d-border-radius-lg) var(--d-border-radius-lg) var(--d-border-radius-lg) var(--d-border-radius-sm);
+      }
+
     </style>
-    <donna-square></donna-square>
-    <donna-chat-bubble-system></donna-chat-bubble-system>
+
+    <div>
+      Response
+    </div>
+
   </template>
   <script>
     import '../../middleware/fetchy-instance.js'
     class Element extends Polymer.Element {
       static get is() {
-        return "donna-app"
+        return "donna-chat-bubble-system"
       }
     }
     window.customElements.define(Element.is, Element)

@@ -29,6 +29,13 @@
   --d-spacing-md: calc(var(--spacing-value) * 2);
   --d-spacing-lg: calc(var(--spacing-value) * 4);
 
+
+  --d-border-radius-value: 4px;
+
+  --d-border-raiues-sm: var(--border-raiues-value);
+  --d-border-raiues-md: calc(var(--border-raiues-value) * 2);
+  --d-border-raiues-lg: calc(var(--border-raiues-value) * 3);
+
 }
 
 html {
