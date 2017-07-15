@@ -12,8 +12,7 @@ gulp.task('extras', () => {
     'app/*.*',
     'app/_locales/**',
     '!app/scripts.babel',
-    '!app/*.json',
-    '!app/*.html',
+    '!app/*.json'
   ], {
     base: 'app',
     dot: true
@@ -51,14 +50,14 @@ gulp.task('images', () => {
 });
 
 gulp.task('html',  () => {
-  return gulp.src('app/*.html')
+  return gulp.src('app/pages/*/*.html')
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
     .pipe($.sourcemaps.init())
     .pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.css', $.cleanCss({compatibility: '*'})))
     .pipe($.sourcemaps.write())
     .pipe($.if('*.html', $.htmlmin({removeComments: true, collapseWhitespace: true})))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist/pages'));
 });
 
 gulp.task('chromeManifest', () => {
