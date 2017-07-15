@@ -6,11 +6,8 @@
     <style>
       
       :host {
-      }
-
-      :host .message-bar-wrapper {
-        position: absolute;
-        left: 0;
+        position: fixed;
+        left: 70px;
         bottom: 0;
         right: 0;
         overflow: auto;
@@ -19,7 +16,7 @@
         background-color: var(--d-white);
       }
 
-      :host .message-bar-wrapper input.message-bar {
+      :host input.message-bar {
         float: left;
         height: 30px;
         padding: 0 var(--d-spacing-md);
@@ -32,7 +29,7 @@
         color: var(--d-dark-100);
       }
 
-      :host .message-bar-wrapper input.message-bar::placeholder {
+      :host input.message-bar::placeholder {
         color: var(--d-dark-60);
       }
 
@@ -43,10 +40,8 @@
 
 
     </style>
-    <div class="message-bar-wrapper">
-      <input class="message-bar" placeholder="video with the dog jumping on the trampolina..." type="text">
+      <input class="message-bar" placeholder="Search your history..." type="text">
       <donna-return-btn></donna-return-btn>
-    </div>
 
   </template>
   <script>
