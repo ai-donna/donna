@@ -18,6 +18,7 @@
   --d-font: 'Roboto';
 
   --d-font-size-md: 15px;
+  --d-font-size-lg: 21px;
 
 
 
@@ -59,4 +60,10 @@ body {
 a {
   text-style: underline;
   color: var(--d-white);
+}
+
+h1 {
+  color: var(--d-dark-100);
+  font-weight: 200;
+  
 }

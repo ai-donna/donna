@@ -1,0 +1,38 @@
+<link rel="import" href="../../../../node_modules/@polymer/polymer/polymer-element.html">
+
+<dom-module id="donna-settings-nav">
+  <template>
+    <style>
+      
+      :host {
+        position: fixed;
+        left: 70px;
+        height: 100px;
+        top: 0;
+        right: 0;
+        overflow: auto;
+        padding: var(--d-spacing-sm);
+        border-bottom: 1px solid var(--d-dark-40);
+        background-color: var(--d-dark-0);
+      }
+
+      :host donna-return-btn {
+        float: right;
+      }
+      
+
+
+    </style>
+      <h1>Settings</h1>
+      <donna-return-btn>test</donna-return-btn>
+
+  </template>
+  <script>
+    class Element extends Polymer.Element {
+      static get is() {
+        return "donna-settings-nav"
+      }
+    }
+    window.customElements.define(Element.is, Element)
+  </script>
+</dom-module>
