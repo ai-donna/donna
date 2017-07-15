@@ -6,6 +6,7 @@
   "dependencies": {
     "@polymer/polymer": "^2.0.0",
     "navigo": "^4.8.0",
+    "ueber": "github:jadaradix/ueber",
     "webcomponents-custom-elements": "webcomponents/custom-elements",
     "webcomponents-webcomponentsjs": "webcomponents/webcomponentsjs"
   },
