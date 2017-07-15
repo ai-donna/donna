@@ -28,15 +28,21 @@
 
     </style>
 
-    <div class="message">
-      Donna show me something awesome
-    </div>
+    <div class="message">{{text}}</div>
 
   </template>
   <script>
     class Element extends Polymer.Element {
       static get is() {
         return "donna-chat-bubble-user"
+      }
+      static get properties() {
+        return {
+          text: {
+            type: String,
+            value: "blah blah blah"
+          }
+        }
       }
     }
     window.customElements.define(Element.is, Element)

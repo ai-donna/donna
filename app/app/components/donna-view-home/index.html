@@ -12,19 +12,40 @@
         padding-top: var(--d-spacing-md);
       }
     </style>
+
     <donna-chat-bubble-system></donna-chat-bubble-system>
-    <donna-chat-bubble-system></donna-chat-bubble-system>
-    <donna-chat-bubble-system></donna-chat-bubble-system>
+
     <donna-chat-bubble-user></donna-chat-bubble-user>
+
     <donna-chat-bubble-system></donna-chat-bubble-system>
-    <donna-chat-bubble-user></donna-chat-bubble-user>
-    <donna-chat-loading></donna-chat-loading>
+
+    <donna-chat-bubble-user text="message 1" on-click="test"></donna-chat-bubble-user>
+
+    <donna-chat-loading hidden="[[isLoading]]"></donna-chat-loading>
+
     <donna-message-bar></donna-message-bar>
+
   </template>
   <script>
     class Element extends Polymer.Element {
+      test () {
+        console.log('yesting...')
+        this.isLoading = true
+      }
       static get is() {
         return "donna-view-home"
+      }
+      static get properties() {
+        return {
+          text: {
+            type: Array,
+            value: []
+          },
+          isLoading: {
+            type: Boolean,
+            value: false
+          }
+        }
       }
     }
     window.customElements.define(Element.is, Element)
