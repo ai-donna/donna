@@ -61,9 +61,3 @@ a {
   text-style: underline;
   color: var(--d-white);
 }
-
-h1 {
-  color: var(--d-dark-100);
-  font-weight: 200;
-  
-}

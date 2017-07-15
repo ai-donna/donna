@@ -1,0 +1,70 @@
+<link rel="import" href="../../../../node_modules/@polymer/polymer/polymer-element.html">
+
+<dom-module id="donna-chat-loading">
+  <template>
+    <style>
+      
+      :host {
+        position: relative;
+        display: block;
+        overflow: auto;
+        width: 100%;
+        margin-bottom: var(--d-spacing-lg);
+      }
+
+      :host .loading {
+        display: inline-block;
+        padding: var(--d-spacing-md);
+        background-color: var(--d-primary);
+        border-radius: var(--d-border-radius-lg);
+        margin-left: 50px;
+      }
+
+      :host .loading .circle {
+        display: block;
+        float: left;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        margin-right: 5px;
+        background-color: var(--d-white);
+        -webkit-animation: fadeInOut 1.5s infinite; /* Safari 4+ */
+      }
+
+      :host .loading .circle.mc {
+        margin: 0;
+      }
+
+      :host .loading .circle.two {
+        animation-delay: .1s;
+      }
+
+      :host .loading .circle.three {
+        animation-delay: .2s;
+      }
+
+      @-webkit-keyframes fadeInOut {
+        0%   { opacity: 0.3; }
+        30% { opacity: 1; }
+        60% { opacity: 0.3; }
+        100% { opacity: 0.3; }
+      }
+
+    </style>
+
+    <div class="loading">
+      <div class="circle one"></div>
+      <div class="circle two"></div>
+      <div class="circle three mc"></div>
+    </div>
+
+  </template>
+  <script>
+    class Element extends Polymer.Element {
+      static get is() {
+        return "donna-chat-loading"
+      }
+    }
+    window.customElements.define(Element.is, Element)
+  </script>
+</dom-module>

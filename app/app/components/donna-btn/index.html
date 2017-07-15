@@ -1,0 +1,43 @@
+<link rel="import" href="../../../../node_modules/@polymer/polymer/polymer-element.html">
+
+<dom-module id="donna-btn">
+  <template>
+    <style>
+      
+      :host {
+      }
+
+      :host button.btn {
+        transition: var(--d-transition-sm);
+        height: 30px;
+        padding: 0 var(--d-spacing-md);
+        background-color: var(--d-primary);
+        border: 1px solid var(--d-primary-dk);
+        color: var(--d-white);
+        font-size: 10px;
+        letter-spacing: var(--d-letter-spacing);
+        border-radius: var(--d-border-radius-sm);
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      :host button.btn:hover {
+        background-color: var(--d-primary-hl);
+      }
+      
+
+    </style>
+    
+    <button class="btn">Save</button>
+
+
+  </template>
+  <script>
+    class Element extends Polymer.Element {
+      static get is() {
+        return "donna-btn"
+      }
+    }
+    window.customElements.define(Element.is, Element)
+  </script>
+</dom-module>

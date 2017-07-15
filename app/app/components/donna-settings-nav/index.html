@@ -7,25 +7,33 @@
       :host {
         position: fixed;
         left: 70px;
-        height: 100px;
+        /*height: 100px;*/
         top: 0;
         right: 0;
         overflow: auto;
-        padding: var(--d-spacing-sm);
+        padding: var(--d-spacing-sm) var(--d-spacing-sm) var(--d-spacing-sm) var(--d-spacing-md);
         border-bottom: 1px solid var(--d-dark-40);
         background-color: var(--d-dark-0);
       }
 
-      :host donna-return-btn {
+      :host h1 {
+        float: left;
+        color: var(--d-dark-100);
+        font-weight: 100;
+        margin: 0;
+        padding: 0;
+        font-size: 21px;
+        letter-spacing: var(--d-letter-spacing);
+        margin-top: 3px;
+      }
+
+      :host donna-btn {
         float: right;
       }
-      
-
 
     </style>
-      <h1>Settings</h1>
-      <donna-return-btn>test</donna-return-btn>
-
+    <h1>Settings</h1>
+    <donna-btn></donna-btn>
   </template>
   <script>
     class Element extends Polymer.Element {
