@@ -22,15 +22,19 @@ class fetchy {
     }
   }
 
-  get(route) {
+  abstraction(method, route, data) {
     return new Promise((resolve, reject) => {
       const o = {
-        method: 'GET',
+        method,
+        headers: {
+          'Content-Type': 'application/json'
+        }
       }
       if (this.basicAuth !== null) {
-        o.headers = {
-          'Authorization': 'Basic ' + window.btoa(`${this.basicAuth.username}:${this.basicAuth.password}`)
-        }
+        o.headers['Authorization'] = 'Basic ' + window.btoa(`${this.basicAuth.username}:${this.basicAuth.password}`)
+      }
+      if (data !== undefined) {
+        o.body = JSON.stringify(data)
       }
       window.fetch(`${this.baseUrl}/${route}`, o)
         .then(  
@@ -44,6 +48,14 @@ class fetchy {
         )
         .catch(reject)
     })
+  }
+
+  get(route) {
+    return this.abstraction('GET', route)
+  }
+
+  post(route, data) {
+    return this.abstraction('POST', route, data)
   }
 
 }
