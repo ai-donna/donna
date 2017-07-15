@@ -3,7 +3,7 @@
 <dom-module id="donna-message-bar">
   <template>
     <style>
-      
+
       :host {
         position: fixed;
         left: 70px;
@@ -37,16 +37,26 @@
       :host donna-return-btn {
         float: right;
       }
-      
-
 
     </style>
-      <input class="message-bar" placeholder="Search your history..." type="text">
-      <donna-return-btn></donna-return-btn>
+    <input on-keypress="searchText" class="message-bar" placeholder="Search your history..." type="text">
+    <donna-return-btn></donna-return-btn>
 
   </template>
   <script>
+    import boozer from '../../middleware/boozer'
     class Element extends Polymer.Element {
+      searchText (e) {
+        boozer.subscribe('searchResult', result => {
+          console.log('search result input bar', result)
+          this.shadowRoot.querySelector("input").value = ""
+        })
+        boozer.publish('searchText', e.path[0].value)
+        // enter key lol
+        if (e.charCode === 13) {
+          boozer.publish('search')
+        }
+      }
       static get is() {
         return "donna-message-bar"
       }

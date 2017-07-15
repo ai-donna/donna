@@ -3,7 +3,7 @@
 <dom-module id="donna-return-btn">
   <template>
     <style>
-      
+
       :host {
       }
 
@@ -24,16 +24,18 @@
       :host button.return-btn:hover {
         background-color: var(--d-primary-hl);
       }
-      
 
     </style>
-    
-    <button class="return-btn">Search</button>
 
+    <button class="return-btn" on-click="search">Search</button>
 
   </template>
   <script>
+    import boozer from '../../middleware/boozer'
     class Element extends Polymer.Element {
+      search() {
+        boozer.publish('search')
+      }
       static get is() {
         return "donna-return-btn"
       }
