@@ -8,6 +8,12 @@ const past = (text) => {
   return new Promise((resolve, reject) => {
 
 
+    if (chrome.history === undefined) {
+      console.warn('search history not available; you are using http-server probably!')
+      return resolve([])
+    }
+
+
     const stuff = []
     const finish = () => {
       const sortedStuff = ueber.sortByKey(stuff, 'count', true)
