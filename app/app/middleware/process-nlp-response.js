@@ -1,7 +1,7 @@
 import _ from 'lodash'
 
 const generateUrl = (object) => {
-  return `<a href="${object.url}">${object.title}</a>`
+  return `<a href="${object.url}" target="_blank">${object.title}</a>`
 }
 
 const resourceSearch = (response) => {
