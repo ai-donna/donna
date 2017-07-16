@@ -11,14 +11,18 @@
         height: 100vh;
         float: left;
         margin-left: 70px;
-        padding-top: var(--d-spacing-md);
       }
-      :host .messages > donna-chat-bubble-user:last-of-type, :host .messages > donna-chat-bubble-system:last-of-type {
+
+      :host .messages {
+        padding-top: var(--d-spacing-lg);
+        padding-bottom: 96px;
+      }
+/*      :host .messages > donna-chat-bubble-user:last-of-type, :host .messages > donna-chat-bubble-system:last-of-type {
         margin-bottom: 96px;
       }
       :host .messages > donna-chat-loading {
         margin-bottom: 96px;
-      }
+      }*/
     </style>
     <div class="messages">
       <template is="dom-repeat" items="[[messages]]">
@@ -43,75 +47,19 @@
         const defaultMessages = [
           {
             isUser: false,
-            text: `Hey. My name's Donna 💁`
+            text: `Donna's in the building 💁`
           },
           {
             isUser: false,
-            text: `I'm more than a cheesy chat bot, although if you ask me if I love you, I'll probably say yes.`
-          },
-          {
-            isUser: true,
-            text: `Our love can be more than robotic, Donna. How can you help me?`
+            text: `I'm your new cheeky assistant who learns and understands your habits online, and uses that information to help manage all your favorite content.`
           },
           {
             isUser: false,
-            text: `Because I'm able to see your browsing history, I can understand what makes you tick.`
+            text: `I'm your assistant, and your assistant only.  Your data stays safe with me and will never be shared with any third parties.`
           },
           {
             isUser: false,
-            text: `I can recall useful information about people you fancy on Twitter or what that cat stole from the raccoon.`
-          },
-          {
-            isUser: false,
-            text: `But I also want to help you be more productive as well as more mindful. Like a good manager, I enable people.`
-          },
-          {
-            isUser: true,
-            text: `Thank you! So how do you work?`
-          },
-          {
-            isUser: false,
-            text: `I don't just respond to fixed sentences... *please hold*`
-          },
-          {
-            isUser: false,
-            text: `Just joking!`
-          },
-          {
-            isUser: false,
-            text: `Your browsing history is just a list of URLs. My cloud can find structured information from these pages.`
-          },
-          {
-            isUser: false,
-            text: `I have been specially programmed to find structured information from Twitter, YouTube and GitHub URLs. But I can understand just about any natural language if I try hard enough. I store this data in a structured format I can query.`
-          },
-          {
-            isUser: false,
-            text: `Once I understand you, I can translate your questions into structured queries which are very quick for me!`
-          },
-          {
-            isUser: true,
-            text: `Okay... just one final question.`
-          },
-          {
-            isUser: true,
-            text: `Can you tell me about your tech stack?`
-          },
-          {
-            isUser: false,
-            text: `Is PHP an acceptable answer? Ha ha. See, I am very funny.`
-          },
-          {
-            isUser: false,
-            text: `My frontend is built with modern web components - the Shadow DOM, webpack and pure CSS. Apart from a sprinkle of Polymer, I don't need a framework like React or Angular.`
-          },
-          {
-            isUser: false,
-            text: `My backend is infrastructure-as-code Elasticsearch, node.js, api.ai and others. Leandro wrote this half of me in vim, which he's still trying to exit.`
-          },
-          {
-            isUser: false,
-            text: `That's all. Good luck! 😘`
+            text: `You'd be surprised at how fast I learn.  Go ahead and ask me something, I already know you quite well...`
           }
         ]
         // lol
