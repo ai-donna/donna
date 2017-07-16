@@ -1,6 +1,8 @@
 import fetchy from './fetchy'
+import _ from 'lodash'
 import boozer from './boozer'
 import poke from './poke'
+import { processNlpResponse } from './process-nlp-response'
 
 const fetchyInstance = new fetchy()
 fetchyInstance.setBaseUrl('http://localhost:9000')
@@ -11,7 +13,7 @@ boozer.subscribe('search', () => {
   // ...
   fetchyInstance.post('nlp/ask', {question})
     .then(response => {
-      boozer.publish('searchResult', response.result.fulfillment.speech)
+      boozer.publish('searchResult', processNlpResponse(response))
     })
 })
 

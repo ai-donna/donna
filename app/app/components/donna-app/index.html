@@ -32,18 +32,17 @@
       const processUrl = (url) => {
         fetchyInstance.post('resources/interpret', {url})
           .then((res) => console.log(res))
+          .catch(err => console.info(url, err))
       }
-
-      localStorage['donna'] = localStorage['donna'] || {}
 
       past()
         .then(urls => {
           console.warn('urls', urls)
           _.forEach(urls, url => {
-            if (!localStorage['donna'][url.url]) {
+            if (!localStorage[url.url]) {
               processUrl(url.url)
             }
-            localStorage['donna'][url.url] = true
+            localStorage[url.url] = true
           })
         })
         .catch(error => {
