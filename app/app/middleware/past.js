@@ -24,7 +24,8 @@ const past = () => {
     let requestsLeft = 0
     chrome.history.search({
       'text': '',
-      'startTime': new Date().getTime() - (1000 * 60 * 60 * 24 * 30 * 6)
+      'startTime': new Date().getTime() - (1000 * 60 * 60 * 24 * 30 * 6),
+      maxResults: 9999
     }, historyItems => {
       for (let i = 0; i < historyItems.length; ++i) {
         chrome.history.getVisits({ url: historyItems[i].url }, visits => {
