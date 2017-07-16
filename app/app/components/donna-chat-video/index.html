@@ -20,55 +20,50 @@
         color: var(--d-dark-100);
         letter-spacing: var(--d-letter-spacing);
         width: 440px;
-        /*margin-left: 50px;*/
         margin-left: var(--d-spacing-lg);
         line-height: var(--d-spacing-lg);
         font-size: var(--d-font-size-md);
       }
 
-      :host .video .player {
+      :host .video a {
         display: block;
         width: 100%;
-        height: 240px;
         background-color: var(--d-primary);
         border-radius: var(--d-border-radius-sm);
-        margin-bottom: var(--d-spacing-md);
         cursor: pointer;
       }
 
-
-      :host .video h3, .video p {
-        padding: 0;
-        margin: 0;
-      }
-
-      :host .video p {
-        color: var(--d-dark-80);
-      }
-
-      :host .video h3 a{
-        color: var(--d-dark-100);
-      }
+      :host .video a img {
+        display: block;
+        width: 100%;
+      };
 
     </style>
 
-    <!-- <div class="donna-avatar"></div> -->
     <div class="video">
-      <div class="player"></div>
-      <h3><a href="#">Dog does front flip</a></h3>
-      <p>Youtube • Grant Harris • 1:27</p>
+      <a href="[[url]]" target="_blank" class="player">
+        <img src="[[image]]">
+      </div>
     </div>
 
 
   </template>
   <script>
     class Element extends Polymer.Element {
+      ready () {
+        super.ready()
+        console.log('video component do we have binding yet?', this.video)
+      }
       static get is() {
         return "donna-chat-video"
       }
       static get properties() {
         return {
-          text: {
+          image: {
+            type: String,
+            value: ""
+          },
+          url: {
             type: String,
             value: ""
           }

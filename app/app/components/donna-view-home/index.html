@@ -26,11 +26,14 @@
     </style>
     <div class="messages">
       <template is="dom-repeat" items="[[messages]]">
-        <template is="dom-if" restamp="true" if="{{item.isUser}}">
+        <template is="dom-if" restamp="true" if="{{showUser(item)}}">
           <donna-chat-bubble-user text="[[item.text]]"></donna-chat-bubble-user>
         </template>
-        <template is="dom-if" restamp="true" if="{{!item.isUser}}">
+        <template is="dom-if" restamp="true" if="{{showSystem(item)}}">
           <donna-chat-bubble-system text="[[item.text]]"></donna-chat-bubble-system>
+        </template>
+        <template is="dom-if" restamp="true" if="{{showVideo(item)}}">
+          <donna-chat-video image="[[item.video.image]]" url="[[item.video.url]]"></donna-chat-video>
         </template>
       </template>
       <donna-chat-loading class="hide-hack" hidden="[[!loading]]"></donna-chat-loading>
@@ -41,6 +44,15 @@
     import boozer from '../../middleware/boozer'
     import poke from '../../middleware/poke'
     class Element extends Polymer.Element {
+      showUser (item) {
+        return (item.isUser && item.type !== 'video')
+      }
+      showSystem (item) {
+        return (!item.isUser && item.type !== 'video')
+      }
+      showVideo (item) {
+        return (item.type === 'video')
+      }
       ready () {
         super.ready()
         const self = this
@@ -94,10 +106,12 @@
             'text': question
           })
         })
-        boozer.subscribe('searchResult', (result) => {
+        boozer.subscribe('searchResult', message => {
           pushMessage({
             'isUser': false,
-            'text': result
+            'text': message.text,
+            'type': message.type,
+            'video': message.video
           })
           self.loading = false
         })

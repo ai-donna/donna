@@ -14,8 +14,8 @@ boozer.subscribe('search', () => {
   fetchyInstance.post('nlp/ask', {question})
     .then(response => {
 
-      _.forEach(processNlpResponse(response), (text => {
-        boozer.publish('searchResult', text)
+      _.forEach(processNlpResponse(response), (message => {
+        boozer.publish('searchResult', message)
       }))
     })
 })

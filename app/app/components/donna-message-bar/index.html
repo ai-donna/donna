@@ -60,7 +60,6 @@
       ready () {
         super.ready()
         boozer.subscribe('searchResult', result => {
-          console.log('search result input bar', result)
           this.shadowRoot.querySelector("input").value = ""
         })
       }
