@@ -17,17 +17,21 @@ const resourceSearch = (response) => {
           text: response.result.fulfillment.speech
         },
         videos.map(x => {
+          if (x.summary.length > 200) x.summary = x.summary.substring(0, 200) // lol
           return {
             type: 'video',
             video: {
               image: x.contextualData.image,
-              url: x.contextualData.videoUri
+              url: x.contextualData.videoUri,
+              title: x.title,
+              summary: x.summary
             }
           }
         })
       )
       return messages
     }
+
 
     return _.concat({
       type: 'text',

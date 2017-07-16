@@ -28,21 +28,31 @@
       :host .video a {
         display: block;
         width: 100%;
-        background-color: var(--d-primary);
         border-radius: var(--d-border-radius-sm);
         cursor: pointer;
+        text-decoration: none;
       }
 
       :host .video a img {
         display: block;
         width: 100%;
-      };
+      }
+
+      :host .video a h3 {
+        color: var(--d-dark-80);
+      }
+
+      :host .video a p {
+        color: var(--d-dark-60);
+      }
 
     </style>
 
     <div class="video">
       <a href="[[url]]" target="_blank" class="player">
         <img src="[[image]]">
+        <h3>[[title]]</h3>
+        <p>[[summary]]</p>
       </div>
     </div>
 
@@ -52,7 +62,6 @@
     class Element extends Polymer.Element {
       ready () {
         super.ready()
-        console.log('video component do we have binding yet?', this.video)
       }
       static get is() {
         return "donna-chat-video"
@@ -64,6 +73,14 @@
             value: ""
           },
           url: {
+            type: String,
+            value: ""
+          },
+          title: {
+            type: String,
+            value: ""
+          },
+          summary: {
             type: String,
             value: ""
           }

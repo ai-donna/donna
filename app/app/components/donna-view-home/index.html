@@ -33,7 +33,7 @@
           <donna-chat-bubble-system text="[[item.text]]"></donna-chat-bubble-system>
         </template>
         <template is="dom-if" restamp="true" if="{{showVideo(item)}}">
-          <donna-chat-video image="[[item.video.image]]" url="[[item.video.url]]"></donna-chat-video>
+          <donna-chat-video image="[[item.video.image]]" url="[[item.video.url]]" title="[[item.video.title]]" summary="[[item.video.summary]]"></donna-chat-video>
         </template>
       </template>
       <donna-chat-loading class="hide-hack" hidden="[[!loading]]"></donna-chat-loading>
