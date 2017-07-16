@@ -1,9 +1,12 @@
 import _ from 'lodash'
 
+const generateUrl = (object) => {
+  return `<a href="${object.url}">${object.title}</a>`
+}
+
 const resourceSearch = (response) => {
   if (_.get(response, 'searchResults.length') > 0) {
-    return [response.result.fulfillment.speech,
-      _.join(_.map(response.searchResults, 'title'), ', ')]
+    return _.concat(response.result.fulfillment.speech, _.map(response.searchResults, generateUrl))
   } else {
     return ['Doesn\'t seem to exist']
   }
