@@ -12,6 +12,8 @@ const resourceSearch = (response) => {
 export const processNlpResponse = (response) => {
   switch (_.get(response, 'result.action')) {
     case 'resource.search':
+    case 'resource.search.by.topic':
+    case 'resource.only':
       return resourceSearch(response)
     default:
       return [response.result.fulfillment.speech]
