@@ -13,16 +13,24 @@
         margin-left: 70px;
         padding-top: var(--d-spacing-md);
       }
+      :host .messages > donna-chat-bubble-user:last-of-type, :host .messages > donna-chat-bubble-system:last-of-type {
+        margin-bottom: 96px;
+      }
+      :host .messages > donna-chat-loading {
+        margin-bottom: 96px;
+      }
     </style>
-    <template is="dom-repeat" items="[[messages]]">
-      <template is="dom-if" if="{{item.isUser}}">
-        <donna-chat-bubble-user text="[[item.text]]"></donna-chat-bubble-user>
+    <div class="messages">
+      <template is="dom-repeat" items="[[messages]]">
+        <template is="dom-if" restamp="true" if="{{item.isUser}}">
+          <donna-chat-bubble-user text="[[item.text]]"></donna-chat-bubble-user>
+        </template>
+        <template is="dom-if" restamp="true" if="{{!item.isUser}}">
+          <donna-chat-bubble-system text="[[item.text]]"></donna-chat-bubble-system>
+        </template>
       </template>
-      <template is="dom-if" if="{{!item.isUser}}">
-        <donna-chat-bubble-system text="[[item.text]]"></donna-chat-bubble-system>
-      </template>
-    </template>
-    <donna-chat-loading class="hide-hack" hidden="[[!loading]]"></donna-chat-loading>
+      <donna-chat-loading class="hide-hack" hidden="[[!loading]]"></donna-chat-loading>
+    </div>
     <donna-message-bar></donna-message-bar>
   </template>
   <script>
@@ -35,7 +43,7 @@
         const defaultMessages = [
           {
             isUser: false,
-            text: `Hey; my name's Donna.`
+            text: `Hey. My name's Donna 💁`
           },
           {
             isUser: false,
@@ -71,7 +79,7 @@
           },
           {
             isUser: false,
-            text: `Your browsing history is just a list of URLs and times. My cloud can find structured information from these pages.`
+            text: `Your browsing history is just a list of URLs. My cloud can find structured information from these pages.`
           },
           {
             isUser: false,
@@ -83,7 +91,7 @@
           },
           {
             isUser: true,
-            text: `Okay... just one final question!`
+            text: `Okay... just one final question.`
           },
           {
             isUser: true,
@@ -103,16 +111,28 @@
           },
           {
             isUser: false,
-            text: `Good luck! 😘`
+            text: `That's all. Good luck! 😘`
           }
         ]
+        // lol
         let timeSoFar = 0
         defaultMessages.forEach((message, index) => {
           setTimeout(() => {
-            self.push('messages', message)
+            if (message.isUser === false) {
+              self.loading = true
+              setTimeout(() => {
+                self.loading = false
+                self.push('messages', message)
+                window.scrollTo(0, 1000000)
+              }, 1500)
+            } else {
+              self.push('messages', message)
+              window.scrollTo(0, 1000000)
+            }
           }, timeSoFar)
-          timeSoFar += (message.text.length * 35)
+          timeSoFar += (message.text.length * 35) + (message.isUser === true ? 1500 : 0)
         })
+
         boozer.subscribe('search', () => {
           self.loading = true
           const question = poke.get('question')
