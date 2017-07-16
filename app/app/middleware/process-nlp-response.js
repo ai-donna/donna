@@ -9,20 +9,23 @@ const generateUrl = (object) => {
 
 const resourceSearch = (response) => {
   if (_.get(response, 'searchResults.length') > 0) {
-    if (response.searchResults[0].contextualData.videoUri) {
-      const messages = [
+    const videos = response.searchResults.filter(x => x.contextualData && x.contextualData.videoUri !== undefined)
+    if (videos.length > 0) {
+      return _.concat(
         {
           type: 'text',
           text: response.result.fulfillment.speech
         },
-        {
-          type: 'video',
-          video: {
-            image: response.searchResults[0].contextualData.image,
-            url: response.searchResults[0].contextualData.videoUri
+        videos.map(x => {
+          return {
+            type: 'video',
+            video: {
+              image: x.contextualData.image,
+              url: x.contextualData.videoUri
+            }
           }
-        }
-      ]
+        })
+      )
       return messages
     }
 
