@@ -55,11 +55,11 @@
           },
           {
             isUser: false,
-            text: `A great assistant is one you can trust.  Your data stays safe with me and will never be shared with any third parties 🛡`
+            text: `A great assistant is one you can trust.  Your browsing data stays safe with me and will never be shared with any third parties 🛡`
           },
           {
             isUser: false,
-            text: `You'll be surprised at how fast I learn.  Go ahead and ask me for something, I already know you quite well... 🕵`
+            text: `You'll be surprised at how quickly I pick things up.  Go ahead and ask me something 🤸`
           }
         ]
 
@@ -83,7 +83,7 @@
               window.scrollTo(0, 1000000)
             }
           }, timeSoFar)
-          timeSoFar += (message.text.length * 35) + (message.isUser === true ? 1500 : 0)
+          timeSoFar += (message.text.length * 35)
         })
 
         boozer.subscribe('search', () => {
