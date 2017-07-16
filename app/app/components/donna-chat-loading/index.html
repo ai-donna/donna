@@ -5,11 +5,17 @@
     <style>
       
       :host {
-        position: relative;
-        display: block;
         overflow: auto;
         width: 100%;
         margin-bottom: var(--d-spacing-lg);
+        position: relative;
+      }
+
+      :host.hide-hack {
+        display: block;
+      }
+      :host.hide-hack[hidden] {
+        display: none !important;
       }
 
       :host .loading {

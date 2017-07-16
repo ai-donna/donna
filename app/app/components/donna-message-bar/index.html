@@ -48,11 +48,14 @@
   <script>
     import boozer from '../../middleware/boozer'
     class Element extends Polymer.Element {
-      searchText (e) {
+      ready () {
+        super.ready()
         boozer.subscribe('searchResult', result => {
           console.log('search result input bar', result)
           this.shadowRoot.querySelector("input").value = ""
         })
+      }
+      searchText (e) {
         boozer.publish('searchText', e.path[0].value)
         // enter key lol
         if (e.charCode === 13) {

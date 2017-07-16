@@ -1,4 +1,6 @@
 <link rel="import" href="../../../../node_modules/@polymer/polymer/polymer-element.html">
+<link rel="import" href="../../../../node_modules/@polymer/polymer/lib/elements/dom-repeat.html">
+<link rel="import" href="../../../../node_modules/@polymer/polymer/lib/elements/dom-if.html">
 
 <dom-module id="donna-view-home">
   <template>
@@ -12,36 +14,131 @@
         padding-top: var(--d-spacing-md);
       }
     </style>
-
-    <donna-chat-bubble-system></donna-chat-bubble-system>
-
-    <donna-chat-bubble-user></donna-chat-bubble-user>
-
-    <donna-chat-bubble-system></donna-chat-bubble-system>
-
-    <donna-chat-bubble-user text="message 1" on-click="test"></donna-chat-bubble-user>
-
-    <donna-chat-loading hidden="[[isLoading]]"></donna-chat-loading>
-
+    <template is="dom-repeat" items="[[messages]]">
+      <template is="dom-if" if="{{item.isUser}}">
+        <donna-chat-bubble-user text="[[item.text]]"></donna-chat-bubble-user>
+      </template>
+      <template is="dom-if" if="{{!item.isUser}}">
+        <donna-chat-bubble-system text="[[item.text]]"></donna-chat-bubble-system>
+      </template>
+    </template>
+    <donna-chat-loading class="hide-hack" hidden="[[!loading]]"></donna-chat-loading>
     <donna-message-bar></donna-message-bar>
-
   </template>
   <script>
+    import boozer from '../../middleware/boozer'
+    import poke from '../../middleware/poke'
     class Element extends Polymer.Element {
-      test () {
-        console.log('yesting...')
-        this.isLoading = true
+      ready () {
+        super.ready()
+        const self = this
+        const defaultMessages = [
+          {
+            isUser: false,
+            text: `Hey; my name's Donna.`
+          },
+          {
+            isUser: false,
+            text: `I'm more than a cheesy chat bot, although if you ask me if I love you, I'll probably say yes.`
+          },
+          {
+            isUser: true,
+            text: `Our love can be more than robotic, Donna. How can you help me?`
+          },
+          {
+            isUser: false,
+            text: `Because I'm able to see your browsing history, I can understand what makes you tick.`
+          },
+          {
+            isUser: false,
+            text: `I can recall useful information about people you fancy on Twitter or what that cat stole from the raccoon.`
+          },
+          {
+            isUser: false,
+            text: `But I also want to help you be more productive as well as more mindful. Like a good manager, I enable people.`
+          },
+          {
+            isUser: true,
+            text: `Thank you! So how do you work?`
+          },
+          {
+            isUser: false,
+            text: `I don't just respond to fixed sentences... *please hold*`
+          },
+          {
+            isUser: false,
+            text: `Just joking!`
+          },
+          {
+            isUser: false,
+            text: `Your browsing history is just a list of URLs and times. My cloud can find structured information from these pages.`
+          },
+          {
+            isUser: false,
+            text: `I have been specially programmed to find structured information from Twitter, YouTube and GitHub URLs. But I can understand just about any natural language if I try hard enough. I store this data in a structured format I can query.`
+          },
+          {
+            isUser: false,
+            text: `Once I understand you, I can translate your questions into structured queries which are very quick for me!`
+          },
+          {
+            isUser: true,
+            text: `Okay... just one final question!`
+          },
+          {
+            isUser: true,
+            text: `Can you tell me about your tech stack?`
+          },
+          {
+            isUser: false,
+            text: `Is PHP an acceptable answer? Ha ha. See, I am very funny.`
+          },
+          {
+            isUser: false,
+            text: `My frontend is built with modern web components - the Shadow DOM, webpack and pure CSS. Apart from a sprinkle of Polymer, I don't need a framework like React or Angular.`
+          },
+          {
+            isUser: false,
+            text: `My backend is infrastructure-as-code Elasticsearch, node.js, api.ai and others. Leandro wrote this half of me in vim, which he's still trying to exit.`
+          },
+          {
+            isUser: false,
+            text: `Good luck! 😘`
+          }
+        ]
+        let timeSoFar = 0
+        defaultMessages.forEach((message, index) => {
+          setTimeout(() => {
+            self.push('messages', message)
+          }, timeSoFar)
+          timeSoFar += (message.text.length * 35)
+        })
+        boozer.subscribe('search', () => {
+          self.loading = true
+          const question = poke.get('question')
+          self.push('messages', {
+            'isUser': true,
+            'text': question
+          })
+        })
+        boozer.subscribe('searchResult', (result) => {
+          self.push('messages', {
+            'isUser': false,
+            'text': result
+          })
+          self.loading = false
+        })
       }
-      static get is() {
+      static get is () {
         return "donna-view-home"
       }
-      static get properties() {
+      static get properties () {
         return {
-          text: {
+          messages: {
             type: Array,
             value: []
           },
-          isLoading: {
+          loading: {
             type: Boolean,
             value: false
           }
