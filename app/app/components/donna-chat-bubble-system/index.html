@@ -42,9 +42,7 @@
     </style>
 
     <div class="donna-avatar"></div>
-    <div class="response">
-      Response <a href="#">www.facebook.com</a>
-    </div>
+    <div class="response">{{text}}</div>
 
 
   </template>
@@ -52,6 +50,14 @@
     class Element extends Polymer.Element {
       static get is() {
         return "donna-chat-bubble-system"
+      }
+      static get properties() {
+        return {
+          text: {
+            type: String,
+            value: ""
+          }
+        }
       }
     }
     window.customElements.define(Element.is, Element)

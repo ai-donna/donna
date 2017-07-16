@@ -8,6 +8,7 @@ fetchyInstance.setBaseUrl('http://localhost:9000')
 boozer.subscribe('search', () => {
   const question = poke.get('question')
   if (question === null) return
+  // ...
   fetchyInstance.post('nlp/ask', {question})
     .then(response => {
       boozer.publish('searchResult', response.result.fulfillment.speech)
