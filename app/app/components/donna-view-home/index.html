@@ -59,7 +59,7 @@
           },
           {
             isUser: false,
-            text: `You'll be surprised at how quickly I pick things up.  Go ahead and ask me for something, I've already started noticing habits 🕵`
+            text: `You'll be surprised at how quickly I pick things up.  Go ahead and ask me for something 🤸`
           }
         ]
 
@@ -83,7 +83,7 @@
               window.scrollTo(0, 1000000)
             }
           }, timeSoFar)
-          timeSoFar += (message.text.length * 35) + (message.isUser === true ? 1500 : 0)
+          timeSoFar += (message.text.length * 35)
         })
 
         boozer.subscribe('search', () => {
