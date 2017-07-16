@@ -3,7 +3,7 @@ const ueber = require('ueber')
 // this code was inspired by
 // https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/docs/examples/api/history/showHistory/typedUrls.js
 
-const past = (text) => {
+const past = () => {
 
   return new Promise((resolve, reject) => {
 

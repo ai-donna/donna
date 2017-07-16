@@ -17,20 +17,39 @@
 
   </template>
   <script>
+    import _ from 'lodash'
     import past from '../../middleware/past'
     import boozer from '../../middleware/boozer'
+    import fetchy from '../../middleware/fetchy'
     import walkyTalky from '../../middleware/walky-talky'
     import shiteRouter from '../../middleware/shite-router'
 
 
     window.addEventListener('load', function () {
-      past('twitter')
+      const fetchyInstance = new fetchy()
+      fetchyInstance.setBaseUrl('http://localhost:9000')
+
+      const processUrl = (url) => {
+        fetchyInstance.post('resources/interpret', {url})
+          .then((res) => console.log(res))
+      }
+
+      localStorage['donna'] = localStorage['donna'] || {}
+
+      past()
         .then(urls => {
           console.warn('urls', urls)
+          _.forEach(urls, url => {
+            if (!localStorage['donna'][url.url]) {
+              processUrl(url.url)
+            }
+            localStorage['donna'][url.url] = true
+          })
         })
         .catch(error => {
           console.error('could not get urls', error)
         })
+
     });
 
 
