@@ -114,6 +114,12 @@
             text: `That's all. Good luck! 😘`
           }
         ]
+
+        const pushMessage = (message) => {
+          self.push('messages', message)
+          window.scrollTo(0, 1000000)
+        }
+
         // lol
         let timeSoFar = 0
         defaultMessages.forEach((message, index) => {
@@ -122,11 +128,10 @@
               self.loading = true
               setTimeout(() => {
                 self.loading = false
-                self.push('messages', message)
-                window.scrollTo(0, 1000000)
+                pushMessage(message)
               }, 1500)
             } else {
-              self.push('messages', message)
+              pushMessage(message)
               window.scrollTo(0, 1000000)
             }
           }, timeSoFar)
@@ -136,13 +141,13 @@
         boozer.subscribe('search', () => {
           self.loading = true
           const question = poke.get('question')
-          self.push('messages', {
+          pushMessage({
             'isUser': true,
             'text': question
           })
         })
         boozer.subscribe('searchResult', (result) => {
-          self.push('messages', {
+          pushMessage({
             'isUser': false,
             'text': result
           })
