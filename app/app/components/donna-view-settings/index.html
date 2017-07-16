@@ -11,9 +11,28 @@
         margin-left: 70px;
       }
 
+      :host .content {
+        padding: var(--d-spacing-md);
+        padding-top: calc(var(--d-spacing-md) + 42px);
+      }
+
+      :host label {
+        letter-spacing: var(--d-letter-spacing);
+        line-height: var(--d-spacing-lg);
+        font-size: var(--d-font-size-md);
+        color: var(--d-dark-100);
+      }
+
+      :host input[type='checkbox']{
+        margin-right: var(--d-spacing-md);
+      }
+
 
     </style>
     <donna-settings-nav></donna-settings-nav>
+    <div class="content">
+      <label for="checkbox"><input id="checkbox" type="checkbox" checked>Take over browser new-tab</label>
+    </div>
   </template>
   <script>
     class Element extends Polymer.Element {
