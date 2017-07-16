@@ -53,7 +53,7 @@ html {
   box-sizing: border-box;
 }
 
-:root *, *:before, *:after {
+*, *:before, *:after {
   box-sizing: inherit;
 }
 
