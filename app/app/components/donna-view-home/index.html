@@ -25,7 +25,6 @@
       }*/
     </style>
     <div class="messages">
-      <donna-chat-video></donna-chat-video>
       <template is="dom-repeat" items="[[messages]]">
         <template is="dom-if" restamp="true" if="{{item.isUser}}">
           <donna-chat-bubble-user text="[[item.text]]"></donna-chat-bubble-user>
