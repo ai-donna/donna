@@ -13,7 +13,10 @@ boozer.subscribe('search', () => {
   // ...
   fetchyInstance.post('nlp/ask', {question})
     .then(response => {
-      boozer.publish('searchResult', processNlpResponse(response))
+
+      _.forEach(processNlpResponse(response), (text => {
+        boozer.publish('searchResult', text)
+      }))
     })
 })
 

@@ -2,10 +2,10 @@ import _ from 'lodash'
 
 const resourceSearch = (response) => {
   if (_.get(response, 'searchResults.length') > 0) {
-    return `${response.result.fulfillment.speech}
-      ${_.join(_.map(response.searchResults, 'title'), ', ')}`
+    return [response.result.fulfillment.speech,
+      _.join(_.map(response.searchResults, 'title'), ', ')]
   } else {
-    return 'Nothing has been found'
+    return ['Doesn\'t seem to exist']
   }
 }
 
@@ -14,6 +14,6 @@ export const processNlpResponse = (response) => {
     case 'resource.search':
       return resourceSearch(response)
     default:
-      return response.result.fulfillment.speech
+      return [response.result.fulfillment.speech]
   }
 }
